@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Compound Interest App</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <form id="form" class="form">
+        <h1>Compound Interest App</h1>
+        <div class="form-control">
+          <label for="principal">Principal</label>
+          <input type="number" id="principal" placeholder="Principal amount" />
+        </div>
+        <div class="form-control">
+          <label for="roi">Rate of Interest</label>
+          <input type="number" id="roi" placeholder="Rate of Interest" />
+        </div>
+        <div class="form-control">
+          <label for="years">Years</label>
+          <input type="number" id="years" placeholder="Years" />
+        </div>
+
+        <button type="submit">Submit</button>
+
+        <img src="./img/loading.gif" alt="" />
+
+        <div class="form-control result">
+          <label for="amount">Amount</label>
+          <input
+            type="number"
+            id="amount"
+            class="reslut-holder"
+            placeholder="Amount"
+          />
+        </div>
+      </form>
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>
