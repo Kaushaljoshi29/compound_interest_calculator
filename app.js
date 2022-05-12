@@ -46,7 +46,10 @@ clear.addEventListener('click', function(e){
   submit.style.display = "block";
 
   //hide clear button
-  clear.style.display = 'none'
+  clear.style.display = 'none';
+
+  //Hide Amount div
+  result.style.display = 'none';
     
   e.preventDefault();
 })
