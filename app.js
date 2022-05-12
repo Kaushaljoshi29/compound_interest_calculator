@@ -3,6 +3,7 @@
 const principal = document.getElementById("principal");
 const rateOfInterest = document.getElementById("roi");
 const years = document.getElementById("years");
+const amount = document.getElementById('amount')
 
 //Image element
 const loading = document.querySelector("img");
@@ -17,7 +18,13 @@ const error = document.querySelector(".error-msg");
 //Container element
 const container = document.querySelector(".container");
 
-//Event Handler
+//Submit button element
+const submit = document.querySelector('.submit');
+
+//Clear Button element
+const clear = document.querySelector('.clear');
+
+//Event Handler for submit button
 const submitButton = document.querySelector("button");
 submitButton.addEventListener("click", function (e) {
   //Show loading
@@ -27,6 +34,23 @@ submitButton.addEventListener("click", function (e) {
   e.preventDefault();
 });
 
+//Event handler for Clear button
+clear.addEventListener('click', function(e){
+  principal.value = "";
+  rateOfInterest.value = "";
+  years.value = "";
+  amount.value = ''
+
+
+  //Show submit button
+  submit.style.display = "block";
+
+  //hide clear button
+  clear.style.display = 'none'
+    
+  e.preventDefault();
+})
+
 function calculateInterest() {
   const principalValue = parseFloat(principal.value);
   const rateOfInterestValue = parseFloat(rateOfInterest.value);
@@ -35,7 +59,7 @@ function calculateInterest() {
 
   const amount =
     principalValue * Math.pow(1 + rateOfInterestDecimal / 1, yearsValue);
-  resultHolder.value = amount.toFixed(4);
+  resultHolder.value = amount.toFixed(4 );
 
   if (isFinite(amount)) {
     //Hide loading
@@ -43,6 +67,14 @@ function calculateInterest() {
 
     //Show result
     result.style.display = "block";
+
+    //show clear button
+    clear.style.display = 'block'
+
+    //Hide submit button
+    submit.style.display = 'none'
+
+    
   } else {
     showError("Please enter all the fields");
   }
